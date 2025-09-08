@@ -1,0 +1,148 @@
+@import "tailwindcss";
+
+/* Import a clean UI font (also add font link in index.html for best performance) */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root{
+  /* colors */
+  --color-primary: #D9FF43;       /* payodios */
+  --color-primary-600: #D9FF43;
+  --color-bg: #000000;
+  --color-surface: rgba(255,255,255,0.03);
+  --color-text: #ffffff;
+  --color-muted: rgba(255,255,255,0.6);
+
+  /* fonts */
+  --font-sans: "Plus Jakarta Sans", Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  --font-display: "SF Pro Display", --font-sans;
+}
+@theme{
+  /* colors */
+ --color-primary: #D9FF43;       /* payodios */
+  --color-primary-600: #D9FF43;
+  --color-bg: #000000;
+  --color-surface: rgba(255,255,255,0.03);
+  --color-text: #ffffff;
+  --color-muted: rgba(255,255,255,0.6);}
+/* base */
+html, body, #root {
+  height: 100%;
+}
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* simple utility animations used across the landing */
+.fade-in { opacity: 0; animation: tl__fadeIn 1.2s ease-out forwards; }
+.slide-up { transform: translateY(40px); opacity: 0; animation: tl__slideUp 1s ease-out forwards; }
+.blur-in { filter: blur(10px); opacity: 0; animation: tl__blurIn 1.5s ease-out forwards; }
+
+/* stagger helpers */
+.stagger-1 { animation-delay: .12s; }
+.stagger-2 { animation-delay: .28s; }
+.stagger-3 { animation-delay: .44s; }
+.stagger-4 { animation-delay: .6s; }
+.stagger-5 { animation-delay: .8s; }
+.stagger-6 { animation-delay: 1s; }
+
+@keyframes tl__fadeIn { to { opacity: 1; } }
+@keyframes tl__slideUp { to { transform: translateY(0); opacity: 1; } }
+@keyframes tl__blurIn { to { filter: blur(0); opacity: 1; } }
+
+/* glass effect used for nav, cards, panels */
+.glass-effect {
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+}
+
+/* card hover / success card */
+.success-card {
+  transition: transform .6s cubic-bezier(.4,0,.2,1), box-shadow .4s ease, border-color .4s ease;
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+.success-card::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent);
+  transition: left .9s ease-in-out;
+  z-index: 1;
+}
+.success-card:hover::before { left: 120%; }
+.success-card:hover {
+  transform: translateY(-10px) scale(1.01);
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.6);
+  border-color: rgba(255,255,255,0.06);
+}
+.success-card .card-image { transition: transform .8s cubic-bezier(.4,0,.2,1); }
+.success-card:hover .card-image { transform: scale(1.06); }
+.success-card .card-gradient { transition: opacity .6s ease; }
+.success-card .card-content { transition: transform .36s cubic-bezier(.4,0,.2,1); }
+.success-card:hover .card-content { transform: translateY(-4px); }
+
+/* glow button (main CTA) */
+.glow-btn {
+  --x: 50%;
+  --y: 50%;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  appearance: none;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: #fff;
+  color: #0b1220;
+  padding: .625rem 1.75rem;
+  font-weight: 700;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: transform .18s ease, border-color .18s ease;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.08);
+  isolation: isolate;
+}
+.glow-btn:hover { transform: translateY(-2px); border-color: rgba(0,0,0,0.06); }
+.glow-btn::before,
+.glow-btn::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .22s ease;
+  z-index: -1;
+}
+.glow-btn::before {
+  background:
+    radial-gradient(90px 90px at var(--x) var(--y), var(--glow-core) 0%, rgba(255,255,255,0.18) 40%, transparent 70%),
+    radial-gradient(140px 140px at var(--x) var(--y), var(--glow-color-strong) 0%, transparent 75%);
+  mix-blend-mode: screen;
+}
+.glow-btn::after {
+  inset: -12px;
+  filter: blur(20px);
+  background: radial-gradient(200px 200px at var(--x) var(--y), var(--glow-color) 0%, transparent 80%);
+  z-index: -2;
+}
+.glow-btn:hover::before,
+.glow-btn:hover::after { opacity: 1; }
+
+/* small icon box inside button */
+.icon-box { width: 24px; height: 24px; display: inline-flex; align-items:center; justify-content:center; flex-shrink: 0; }
+
+/* typing / counter helpers (used in hero/IDE mock) */
+@keyframes countUp { from { opacity:0; transform: translateY(16px) } to { opacity:1; transform: translateY(0) } }
+.counter { animation: countUp .8s ease-out forwards; }
+
+/* fix inline svg style usages when React expects objects:
+   ensure in components you use: style={{ width: '24px', height: '24px' }} */
