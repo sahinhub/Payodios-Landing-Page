@@ -56,13 +56,13 @@ export const BorderBeam = ({
   size = 50,
   delay = 0,
   duration = 6,
-  colorFrom = "#ffaa40",
-  colorTo = "#9c40ff",
+  colorFrom = "#d9ff43",
+  colorTo = "rgba(255,255,255,0.5)",
   transition,
   style,
   reverse = false,
   initialOffset = 0,
-  borderWidth = 1,
+  borderWidth = 1.5,
 }: BorderBeamProps) => {
   return (
     <div

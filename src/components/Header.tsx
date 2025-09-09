@@ -38,7 +38,7 @@ export function NavigationMenuDemo() {
     {/* navigation */}
       <header className=" pt-4 container mx-auto z-50 fade-in ">
       <div className="mx-auto">
-        <div className="h-14 flex items-center justify-between pr-3 pl-3 glass-effect border border-white/10 rounded-full">
+        <div className="h-14 flex items-center justify-between pr-3 pl-3 glass-effect border border-white/20 rounded-full">
           {/* logo */}
           <NavLink to={"/"}>
             <div className="flex-1 ">
@@ -99,15 +99,18 @@ export function NavigationMenuDemo() {
 
 
           <div className="flex justify-end gap-3">
-            <Button className="relative overflow-hidden cursor-pointer text-black" variant="default" size="lg">
+            <Button className="overflow-hidden group relative inline-flex cursor-pointer transition-transform duration-300 ease-[cubic-bezier(0.15,0.83,0.66,1)]  hover:scale-[1.1]  text-lg font-semibold text-white/70 tracking-tight rounded-full items-center justify-center" style={{
+              boxShadow:'inset 0 0 0 1px ,rgba(217, 255, 67,0.5)',
+              background:'radial-gradient(ellipse at bottom,rgba(71,81,92,1) 0%,rgba(0,0,0,1) 100%)'
+            }} variant="default" size="lg">
               <LogIn></LogIn>
               Login
               <BorderBeam
                 size={40}
                 initialOffset={20}
-                className="from-transparent via-yellow-500 to-transparent"
+                className=""
                 transition={{
-                  type: "spring",
+                  type: "tween",
                   stiffness: 60,
                   damping: 20,
                 }}
