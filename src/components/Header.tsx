@@ -1,8 +1,8 @@
 "use client"
 
 import * as React from "react"
-import { Link, useLocation } from "react-router-dom"
-import favicon from "../assets/paydios favicon.png"
+import { Link, NavLink, useLocation } from "react-router-dom"
+import favicon from "../assets/paydios_logo_white.png"
 
 import {
   NavigationMenu,
@@ -10,9 +10,24 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from "../components/ui/navigation-menu"
+import { BorderBeam } from "./magicui/border-beam"
+import { Button } from "./ui/button"
+import { LogInIcon, MenuIcon } from "lucide-react"
+import { HiOutlineMenuAlt3 } from "react-icons/hi";
+
+
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuTrigger,
+} from "../components/ui/dropdown-menu"
+
 
 export function NavigationMenuDemo() {
-  const location = useLocation()
+  const location = useLocation();
+  const [open, setOpen] = React.useState(false);
 
   const isActive = (path: string) => location.pathname === path
 
@@ -21,21 +36,20 @@ export function NavigationMenuDemo() {
       <div className="max-w-7xl mx-auto">
         <div className="h-14 flex items-center justify-between pr-3 pl-3 glass-effect border border-white/10 rounded-full">
           {/* logo */}
-          <div className="flex items-center gap-3">
-            <div className=" rounded-full flex items-center">
-              <img src={favicon} alt="Paydios" className="w-5 h-5 object-cover" />
+          <NavLink to={"/"}>
+            <div className="flex-1 ">
+              <img src={favicon} alt="Paydios" className="w-40" />
             </div>
-            <span className="text-lg font-medium sf-pro-display">Paydios</span>
-          </div>
+          </NavLink>
 
           {/* center navigation */}
-          <NavigationMenu>
+          <NavigationMenu className="hidden md:inline-flex">
             <NavigationMenuList className="flex items-center gap-2">
               <NavigationMenuItem>
-                <NavigationMenuLink asChild>
+                <NavigationMenuLink >
                   <Link
                     to="/"
-                    className={`px-4 py-2 rounded-full font-medium transition-colors duration-200 focus:outline-none focus:bg-primary focus:ring-primary/50 shadow-sm border border-transparent text-gray-900 dark:text-white hover:border-gray-700 ${isActive("/") ? "bg-primary text-white dark:bg-primary" : "text-white/70 hover:text-white"}`}
+                    className={`px-4 py-2 rounded-full font-medium transition-colors duration-200 focus:outline-none focus:bg-primary focus:ring-primary/50 shadow-sm border border-transparent text-black hover:border-gray-700 ${isActive("/") ? "bg-primary text-black" : "text-white"}`}
                   >
                     Home
                   </Link>
@@ -43,10 +57,10 @@ export function NavigationMenuDemo() {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuLink asChild>
+                <NavigationMenuLink >
                   <Link
                     to="/features"
-                    className={`px-4 py-2 rounded-full font-medium transition-colors duration-200 focus:outline-none focus:bg-primary focus:ring-primary/50 shadow-sm border border-transparent text-gray-900 dark:text-white hover:border-gray-700 ${isActive("/features") ? "bg-primary text-white dark:bg-primary" : "text-white/70 hover:text-white"}`}
+                    className={`px-4 py-2 rounded-full font-medium transition-colors duration-200 focus:outline-none focus:bg-primary focus:ring-primary/50 shadow-sm border border-transparent text-black hover:border-gray-700 ${isActive("/features") ? "bg-primary text-black" : "text-white"}`}
                   >
                     Features
                   </Link>
@@ -54,10 +68,10 @@ export function NavigationMenuDemo() {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuLink asChild>
+                <NavigationMenuLink >
                   <Link
                     to="/pricing"
-                    className={`px-4 py-2 rounded-full font-medium transition-colors duration-200 focus:outline-none focus:bg-primary focus:ring-primary/50 shadow-sm border border-transparent text-gray-900 dark:text-white hover:border-gray-700 ${isActive("/pricing") ? "bg-primary text-white dark:bg-primary" : "text-white/70 hover:text-white"}`}
+                    className={`px-4 py-2 rounded-full font-medium transition-colors duration-200 focus:outline-none focus:bg-primary focus:ring-primary/50 shadow-sm border border-transparent text-black hover:border-gray-700 ${isActive("/pricing") ? "bg-primary text-black" : "text-white"}`}
                   >
                     Pricing
                   </Link>
@@ -65,10 +79,10 @@ export function NavigationMenuDemo() {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuLink asChild>
+                <NavigationMenuLink >
                   <Link
                     to="/contact"
-                    className={`px-4 py-2 rounded-full font-medium transition-colors duration-200 focus:outline-none focus:bg-primary focus:ring-primary/50 shadow-sm border border-transparent text-gray-900 dark:text-white hover:border-gray-700 ${isActive("/contact") ? "bg-primary text-white dark:bg-primary" : "text-white/70 hover:text-white"}`}
+                    className={`px-4 py-2 rounded-full font-medium transition-colors duration-200 focus:outline-none focus:bg-primary focus:ring-primary/50 shadow-sm border border-transparent text-black hover:border-gray-700 ${isActive("/contact") ? "bg-primary text-black" : "text-white"}`}
                   >
                     Contact
                   </Link>
@@ -78,23 +92,79 @@ export function NavigationMenuDemo() {
           </NavigationMenu>
 
           {/* right actions */}
-          <div className="hidden md:flex items-center gap-3">
-            <button className="px-4 py-2 text-sm text-white/70 hover:text-white transition-colors">Sign In</button>
-            <button className="px-4 py-2 text-sm bg-white text-black rounded-full hover:bg-white/90 transition-all transform hover:scale-105">
-              Get Started
-            </button>
-          </div>
 
-          {/* mobile menu button */}
-          <button className="md:hidden p-2">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-menu h-5 w-5">
-              <path d="M4 12h16" />
-              <path d="M4 18h16" />
-              <path d="M4 6h16" />
-            </svg>
-          </button>
+
+          <div className="flex justify-end gap-2">
+            <Button style={{
+              borderRadius: '50px'
+            }} className="relative overflow-hidden border-gray-700 bg-gray-800 text-lg cursor-pointer" variant="outline" >
+              <LogInIcon></LogInIcon>
+              Login
+              <BorderBeam
+                size={60}
+                initialOffset={20}
+                className="from-transparent via-primary to-transparent"
+                transition={{
+                  type: "tween",
+                  stiffness: 10,
+                  damping: 20,
+                }}
+              />
+            </Button>
+
+            {/* mobile menu button */}
+
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button className="md:hidden" size="default"><HiOutlineMenuAlt3 className="text-xl"></HiOutlineMenuAlt3></Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-50 mt-2 mr-4" align="start">
+                <DropdownMenuItem asChild>
+                  <Link
+                    to="/"
+                    className={`w-full px-2 py-1.5 rounded-md ${isActive("/") ? "bg-primary text-white" : "text-black"
+                      }`}
+                  >
+                    <DropdownMenuLabel>Home</DropdownMenuLabel>
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link
+                    to="/features"
+                    className={`w-full px-2 py-1.5 rounded-md ${isActive("/features") ? "bg-primary text-white" : "text-black"
+                      }`}
+                  >
+                    <DropdownMenuLabel>Features</DropdownMenuLabel>
+
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link
+                    to="/pricing"
+                    className={`w-full px-2 py-1.5 rounded-md ${isActive("/pricing") ? "bg-primary text-white" : "text-black"
+                      }`}
+                  >
+                    <DropdownMenuLabel>Pricing</DropdownMenuLabel>
+
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link
+                    to="/contact"
+                    className={`w-full px-2 py-1.5 rounded-md ${isActive("/contact") ? "bg-primary text-white" : "text-black"
+                      }`}
+                  >
+                    <DropdownMenuLabel>Contact</DropdownMenuLabel>
+
+                  </Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
         </div>
       </div>
     </header>
   )
 }
+
+export default NavigationMenuDemo;
