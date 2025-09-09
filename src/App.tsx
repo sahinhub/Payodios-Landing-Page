@@ -5,13 +5,15 @@ import { LuSunMedium } from "react-icons/lu";
 import { Globe } from "./components/magicui/globe";
 import { Outlet } from "react-router-dom";
 import { NavigationMenuDemo } from "./components/Header";
+import Footer from "./components/Footer";
 function App() {
   
   return (
-    <div className="bg-gray-900 text-black text-white min-h-screen relative">
+    <div className="bg-neutral-950 text-black text-white min-h-screen relative">
      <NavigationMenuDemo></NavigationMenuDemo>
      
      <Outlet></Outlet>
+     <Footer></Footer>
         
 
 

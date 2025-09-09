@@ -30,8 +30,14 @@ export function NavigationMenuDemo() {
   const isActive = (path: string) => location.pathname === path
 
   return (
-    <header className="fixed top-4 left-4 right-4 z-50 fade-in">
-      <div className="max-w-7xl mx-auto">
+   <div>
+    <div aria-hidden="true" className="pointer-events-none fixed inset-0 overflow-hidden">
+      <div className="absolute -top-16 -left-24 h-96 w-96 rounded-full bg-gradient-to-tr from-indigo-600/40 via-sky-500/30 to-cyan-400/20 blur-3xl"></div>
+      <div className="absolute bottom-0 right-0 h-[28rem] w-[28rem] rounded-full bg-gradient-to-tr from-fuchsia-600/30 via-purple-600/20 to-sky-500/20 blur-3xl"></div>
+    </div>
+    {/* navigation */}
+      <header className=" pt-4 container mx-auto z-50 fade-in ">
+      <div className="mx-auto">
         <div className="h-14 flex items-center justify-between pr-3 pl-3 glass-effect border border-white/10 rounded-full">
           {/* logo */}
           <NavLink to={"/"}>
@@ -111,7 +117,7 @@ export function NavigationMenuDemo() {
             {/* mobile menu button */}
             <DropdownMenu>
               <DropdownMenuTrigger className="md:hidden cursor-pointer"><HiOutlineMenuAlt3 className="text-2xl"></HiOutlineMenuAlt3></DropdownMenuTrigger>
-              <DropdownMenuContent className="min-w-[250px] mr-3">
+              <DropdownMenuContent className="min-w-[250px] mr-5">
                 <DropdownMenuItem><NavLink className={'w-full'} to={'/'}>Home</NavLink></DropdownMenuItem>
                 <DropdownMenuItem><NavLink className={'w-full'} to={'/features'}>Features</NavLink></DropdownMenuItem>
                 <DropdownMenuItem><NavLink className={'w-full'} to={'/pricing'}>Pricing</NavLink></DropdownMenuItem>
@@ -124,6 +130,9 @@ export function NavigationMenuDemo() {
         </div>
       </div>
     </header>
+   </div>
+   
+
   )
 }
 
