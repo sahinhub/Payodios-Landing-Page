@@ -8,7 +8,7 @@ import { NavigationMenuDemo } from "./components/Header";
 function App() {
   
   return (
-    <div className="    dark:bg-gray-900 text-black dark:text-white min-h-screen relative">
+    <div className="bg-gray-900 text-black text-white min-h-screen relative">
      <NavigationMenuDemo></NavigationMenuDemo>
      
      <Outlet></Outlet>

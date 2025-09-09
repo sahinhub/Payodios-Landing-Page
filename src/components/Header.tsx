@@ -93,7 +93,7 @@ export function NavigationMenuDemo() {
 
 
           <div className="flex justify-end gap-3">
-            <Button className="relative overflow-hidden cursor-pointer" size="lg">
+            <Button className="relative overflow-hidden cursor-pointer text-black" variant="default" size="lg">
               <LogIn></LogIn>
               Login
               <BorderBeam

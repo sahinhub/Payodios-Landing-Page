@@ -2,7 +2,6 @@
 import animate from "tailwindcss-animate";
 import twAnimate from "tw-animate-css";
 export default {
-  darkMode: "class",
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
