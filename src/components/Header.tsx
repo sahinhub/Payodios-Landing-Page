@@ -15,19 +15,17 @@ import { Button } from "./ui/button"
 import { LogInIcon, MenuIcon } from "lucide-react"
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 
-
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "../components/ui/dropdown-menu"
 
-
 export function NavigationMenuDemo() {
   const location = useLocation();
-  const [open, setOpen] = React.useState(false);
 
   const isActive = (path: string) => location.pathname === path
 
