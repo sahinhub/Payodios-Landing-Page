@@ -3,7 +3,7 @@
 import * as React from "react"
 import { Link, NavLink, useLocation } from "react-router-dom"
 import favicon from "../assets/paydios_logo_white.png"
-
+import '../index.css'
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -12,7 +12,7 @@ import {
 } from "../components/ui/navigation-menu"
 import { BorderBeam } from "./magicui/border-beam"
 import { Button } from "./ui/button"
-import { LogInIcon, MenuIcon } from "lucide-react"
+import { LogIn, LogInIcon, MenuIcon } from "lucide-react"
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 
 import {
@@ -47,7 +47,7 @@ export function NavigationMenuDemo() {
                 <NavigationMenuLink >
                   <Link
                     to="/"
-                    className={`px-4 py-2 rounded-full font-medium transition-colors duration-200 focus:outline-none focus:bg-primary focus:ring-primary/50 shadow-sm border border-transparent text-black hover:border-gray-700 ${isActive("/") ? "bg-primary text-black" : "text-white"}`}
+                    className={`px-4 py-2 rounded-full font-medium transition-colors duration-200 ${isActive("/") && 'text-primary'} focus:outline-none focus:ring-primary/50 shadow-sm `}
                   >
                     Home
                   </Link>
@@ -58,7 +58,7 @@ export function NavigationMenuDemo() {
                 <NavigationMenuLink >
                   <Link
                     to="/features"
-                    className={`px-4 py-2 rounded-full font-medium transition-colors duration-200 focus:outline-none focus:bg-primary focus:ring-primary/50 shadow-sm border border-transparent text-black hover:border-gray-700 ${isActive("/features") ? "bg-primary text-black" : "text-white"}`}
+                    className={`px-4 py-2 rounded-full font-medium transition-colors duration-200 ${isActive("/features") && 'text-primary'} focus:outline-none focus:ring-primary/50 shadow-sm `}
                   >
                     Features
                   </Link>
@@ -69,7 +69,7 @@ export function NavigationMenuDemo() {
                 <NavigationMenuLink >
                   <Link
                     to="/pricing"
-                    className={`px-4 py-2 rounded-full font-medium transition-colors duration-200 focus:outline-none focus:bg-primary focus:ring-primary/50 shadow-sm border border-transparent text-black hover:border-gray-700 ${isActive("/pricing") ? "bg-primary text-black" : "text-white"}`}
+                    className={`px-4 py-2 rounded-full font-medium transition-colors duration-200 ${isActive("/pricing") && 'text-primary'} focus:outline-none focus:ring-primary/50 shadow-sm `}
                   >
                     Pricing
                   </Link>
@@ -80,7 +80,7 @@ export function NavigationMenuDemo() {
                 <NavigationMenuLink >
                   <Link
                     to="/contact"
-                    className={`px-4 py-2 rounded-full font-medium transition-colors duration-200 focus:outline-none focus:bg-primary focus:ring-primary/50 shadow-sm border border-transparent text-black hover:border-gray-700 ${isActive("/contact") ? "bg-primary text-black" : "text-white"}`}
+                    className={`px-4 py-2 rounded-full font-medium transition-colors duration-200 ${isActive("/contact") && 'text-primary'} focus:outline-none focus:ring-primary/50 shadow-sm `}
                   >
                     Contact
                   </Link>
@@ -92,72 +92,34 @@ export function NavigationMenuDemo() {
           {/* right actions */}
 
 
-          <div className="flex justify-end gap-2">
-            <Button style={{
-              borderRadius: '50px'
-            }} className="relative overflow-hidden border-gray-700 bg-gray-800 text-lg cursor-pointer" variant="outline" >
-              <LogInIcon></LogInIcon>
+          <div className="flex justify-end gap-3">
+            <Button className="relative overflow-hidden cursor-pointer" size="lg">
+              <LogIn></LogIn>
               Login
               <BorderBeam
-                size={60}
+                size={40}
                 initialOffset={20}
-                className="from-transparent via-primary to-transparent"
+                className="from-transparent via-yellow-500 to-transparent"
                 transition={{
-                  type: "tween",
-                  stiffness: 10,
+                  type: "spring",
+                  stiffness: 60,
                   damping: 20,
                 }}
               />
             </Button>
 
             {/* mobile menu button */}
-
             <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button className="md:hidden" size="default"><HiOutlineMenuAlt3 className="text-xl"></HiOutlineMenuAlt3></Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-50 mt-2 mr-4" align="start">
-                <DropdownMenuItem asChild>
-                  <Link
-                    to="/"
-                    className={`w-full px-2 py-1.5 rounded-md ${isActive("/") ? "bg-primary text-white" : "text-black"
-                      }`}
-                  >
-                    <DropdownMenuLabel>Home</DropdownMenuLabel>
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link
-                    to="/features"
-                    className={`w-full px-2 py-1.5 rounded-md ${isActive("/features") ? "bg-primary text-white" : "text-black"
-                      }`}
-                  >
-                    <DropdownMenuLabel>Features</DropdownMenuLabel>
-
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link
-                    to="/pricing"
-                    className={`w-full px-2 py-1.5 rounded-md ${isActive("/pricing") ? "bg-primary text-white" : "text-black"
-                      }`}
-                  >
-                    <DropdownMenuLabel>Pricing</DropdownMenuLabel>
-
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link
-                    to="/contact"
-                    className={`w-full px-2 py-1.5 rounded-md ${isActive("/contact") ? "bg-primary text-white" : "text-black"
-                      }`}
-                  >
-                    <DropdownMenuLabel>Contact</DropdownMenuLabel>
-
-                  </Link>
-                </DropdownMenuItem>
+              <DropdownMenuTrigger className="md:hidden cursor-pointer"><HiOutlineMenuAlt3 className="text-2xl"></HiOutlineMenuAlt3></DropdownMenuTrigger>
+              <DropdownMenuContent className="min-w-[250px] mr-3">
+                <DropdownMenuItem><NavLink className={'w-full'} to={'/'}>Home</NavLink></DropdownMenuItem>
+                <DropdownMenuItem><NavLink className={'w-full'} to={'/features'}>Features</NavLink></DropdownMenuItem>
+                <DropdownMenuItem><NavLink className={'w-full'} to={'/pricing'}>Pricing</NavLink></DropdownMenuItem>
+                <DropdownMenuItem><NavLink className={'w-full'} to={'/contact'}>Contact</NavLink></DropdownMenuItem>
+                
               </DropdownMenuContent>
             </DropdownMenu>
+
           </div>
         </div>
       </div>
