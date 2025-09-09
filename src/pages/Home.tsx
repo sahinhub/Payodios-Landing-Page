@@ -1,9 +1,10 @@
+import HeroSection from '@/components/Hero';
 import * as React from 'react';
 
 const Home = () => {
     return (
-        <div className='min-h-screen py-20 text-center'>
-            <h1 className='text-5xl'>Home</h1>
+        <div className='min-h-screen text-center'>
+            <HeroSection></HeroSection>
         </div>
     );
 };

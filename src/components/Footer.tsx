@@ -11,12 +11,12 @@ import playStore from '../assets/google_play.webp'
 export default function Footer() {
 
   return (
-   <footer className="sm:px-6 mt-10 mx-auto px-4">
+   <footer className="sm:px-6 mx-auto px-4">
   <div className=" container  mx-auto relative sm:mt-12 overflow-hidden rounded-t-[20px] bg-primary/10 border-primary/30 border border-b-0 backdrop-blur">
     <div className="absolute inset-0 pointer-events-none">
       <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-white/5 to-transparent"></div>
     </div>
-    <div className="relative sm:p-8 pt-6 pr-6 pb-6 pl-6">
+    <div className="relative sm:p-8 pr-6 pb-6 pl-6">
       <div className="grid lg:grid-cols-5 gap-6">
         {/* <!-- Brand / intro --> */}
         <div className="space-y-4 col-span-2">

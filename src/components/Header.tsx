@@ -30,13 +30,13 @@ export function NavigationMenuDemo() {
   const isActive = (path: string) => location.pathname === path
 
   return (
-   <div>
+   <div className="relative ">
     <div aria-hidden="true" className="pointer-events-none fixed inset-0 overflow-hidden">
       <div className="absolute -top-16 -left-24 h-96 w-96 rounded-full bg-gradient-to-tr from-indigo-600/40 via-sky-500/30 to-cyan-400/20 blur-3xl"></div>
       <div className="absolute bottom-0 right-0 h-[28rem] w-[28rem] rounded-full bg-gradient-to-tr from-fuchsia-600/30 via-purple-600/20 to-sky-500/20 blur-3xl"></div>
     </div>
     {/* navigation */}
-      <header className=" pt-4 container mx-auto z-50 fade-in ">
+      <header className=" absolute top-5 left-0 right-0 container mx-auto z-50 fade-in ">
       <div className="mx-auto">
         <div className="h-14 flex items-center justify-between pr-3 pl-3 glass-effect border border-white/20 rounded-full">
           {/* logo */}
@@ -50,46 +50,46 @@ export function NavigationMenuDemo() {
           <NavigationMenu className="hidden md:inline-flex">
             <NavigationMenuList className="flex items-center gap-2">
               <NavigationMenuItem>
-                <NavigationMenuLink >
-                  <Link
+                <NavigationMenuLink asChild>
+                  <NavLink
                     to="/"
                     className={`px-4 py-2 rounded-full font-medium transition-colors duration-200 ${isActive("/") && 'text-primary'} focus:outline-none focus:ring-primary/50 shadow-sm `}
                   >
                     Home
-                  </Link>
+                  </NavLink>
                 </NavigationMenuLink>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuLink >
-                  <Link
+                <NavigationMenuLink asChild >
+                  <NavLink
                     to="/features"
                     className={`px-4 py-2 rounded-full font-medium transition-colors duration-200 ${isActive("/features") && 'text-primary'} focus:outline-none focus:ring-primary/50 shadow-sm `}
                   >
                     Features
-                  </Link>
+                  </NavLink>
                 </NavigationMenuLink>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuLink >
-                  <Link
+                <NavigationMenuLink asChild >
+                  <NavLink
                     to="/pricing"
                     className={`px-4 py-2 rounded-full font-medium transition-colors duration-200 ${isActive("/pricing") && 'text-primary'} focus:outline-none focus:ring-primary/50 shadow-sm `}
                   >
                     Pricing
-                  </Link>
+                  </NavLink>
                 </NavigationMenuLink>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuLink >
-                  <Link
+                <NavigationMenuLink asChild >
+                  <NavLink
                     to="/contact"
                     className={`px-4 py-2 rounded-full font-medium transition-colors duration-200 ${isActive("/contact") && 'text-primary'} focus:outline-none focus:ring-primary/50 shadow-sm `}
                   >
                     Contact
-                  </Link>
+                  </NavLink>
                 </NavigationMenuLink>
               </NavigationMenuItem>
             </NavigationMenuList>
