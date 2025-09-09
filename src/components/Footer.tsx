@@ -16,21 +16,19 @@ export default function Footer() {
     <div className="absolute inset-0 pointer-events-none">
       <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-white/5 to-transparent"></div>
     </div>
-
     <div className="relative sm:p-8 pt-6 pr-6 pb-6 pl-6">
-      <div className="grid lg:grid-cols-4 gap-6">
+      <div className="grid lg:grid-cols-5 gap-6">
         {/* <!-- Brand / intro --> */}
-        <div className="space-y-4">
+        <div className="space-y-4 col-span-2">
           <div className="flex flex-col gap-2">  
             <img className="w-40" src={logo} alt="Payodios" />
-            <p className="text-base leading-relaxed text-neutral-400 font-geist">
-            Available in any kind of ready version
+            <p className="text-base leading-relaxed text-neutral-400">
+            Available in any kind of ready version Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, cupiditate itaque.
             <br></br>
             <b className="text-primary">Download App</b>
           </p>
-          </div>
-          
-         <div className=" flex gap-2">
+          </div> 
+         <div className=" flex flex-wrap gap-2">
            <img className="w-40" src={appStore} alt="Apple Store" />
           <img className="w-40" src={playStore} alt="Play Store" />
          </div>

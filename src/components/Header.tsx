@@ -42,7 +42,7 @@ export function NavigationMenuDemo() {
           {/* logo */}
           <NavLink to={"/"}>
             <div className="flex-1 ">
-              <img src={favicon} alt="Paydios" className="w-40" />
+              <img src={favicon} alt="Paydios" className="w-40 z-10" />
             </div>
           </NavLink>
 
