@@ -36,7 +36,7 @@ export function NavigationMenuDemo() {
       <div className="absolute bottom-0 right-0 h-[28rem] w-[28rem] rounded-full bg-gradient-to-tr from-fuchsia-600/30 via-purple-600/20 to-sky-500/20 blur-3xl"></div>
     </div>
     {/* navigation */}
-      <header className=" absolute top-5 left-0 right-0 container mx-auto z-50 fade-in ">
+      <header className="  fixed   container mx-auto fade-in top-2 left-0 right-0 z-50 bg-transparent backdrop-blur-md ">
       <div className="mx-auto">
         <div className="h-14 flex items-center justify-between pr-3 pl-3 glass-effect border border-white/20 rounded-full">
           {/* logo */}
