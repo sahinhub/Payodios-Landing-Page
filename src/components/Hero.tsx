@@ -5,6 +5,7 @@ import { AnimatedShinyText } from "@/components/magicui/animated-shiny-text";
 import { AuroraText } from "./magicui/aurora-text";
 import { AnimatedGradientText } from "./magicui/animated-gradient-text";
 import { cn } from "../lib/utils";
+import { TextAnimate } from "./magicui/text-animate";
 
 
 const HeroSection: React.FC<{ className?: string }> = ({ className = "" }) => {
@@ -83,11 +84,11 @@ const HeroSection: React.FC<{ className?: string }> = ({ className = "" }) => {
 
       {/* Content overlay */}
       <div className="relative z-10 mx-auto max-w-7xl px-4 pt-10 pb-8 md:px-6 md:pt-16">
-        <div className="mx-auto text-center max-w-5xl flex flex-col gap-3">
+        <div className="mx-auto text-center max-w-[766px] flex flex-col gap-3">
           <div className="group relative mx-auto flex items-center justify-center rounded-full px-4 py-1.5 shadow-[inset_0_-8px_10px_#8fdfff1f] transition-shadow duration-500 ease-out hover:shadow-[inset_0_-5px_10px_#8fdfff3f] ">
             <span
               className={cn(
-                "absolute inset-0 block h-full w-full animate-gradient rounded-[inherit] bg-gradient-to-r from-[#ffaa40]/50 via-[#9c40ff]/50 to-[#ffaa40]/50 bg-[length:300%_100%] p-[1px]",
+                "absolute inset-0 block h-full w-full animate-gradient rounded-[inherit] bg-gradient-to-r from-white/50 via-primary/50 to-white/50 bg-[length:300%_100%] p-[1px]",
               )}
               style={{
                 WebkitMask:
@@ -107,14 +108,20 @@ const HeroSection: React.FC<{ className?: string }> = ({ className = "" }) => {
             />
           </div>
 
-          <h1 className="sm:text-5xl md:text-7xl text-4xl font-semibold tracking-tight">
-            Paydios Merchant Portal – <AuroraText>Simplified</AuroraText> Your
-            Payments.
+
+          <h1 className="sm:text-5xl md:text-7xl text-4xl font-semibold tracking-tight ">
+            <TextAnimate animation="blurInUp" by="word" delay={2}>
+              Paydios Merchant Portal – Simplified Your Payments.
+            </TextAnimate>
+           
           </h1>
 
           <p className="mt-5 text-base md:text-lg text-slate-300">
-            Nebula is a visual builder that lets you design, collaborate, and
-            publish in one place. No code required—unless you want it.
+            <TextAnimate animation="fadeInUp" by="line" as={'p'}>
+              Welcome to Paydios, your all-in-one payment gateway solution designed to help your business accept payments securely, track earnings, and grow with confidence.
+            </TextAnimate>
+
+
           </p>
 
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">

@@ -1,6 +1,6 @@
 "use client";
-
 import React, { memo } from "react";
+
 
 interface AuroraTextProps {
   children: React.ReactNode;
@@ -9,11 +9,11 @@ interface AuroraTextProps {
   speed?: number;
 }
 
-export const AuroraText = memo(
+export  const AuroraText = memo(
   ({
     children,
     className = "",
-    colors = ["#FF0080", "#7928CA", "#0070F3", "#38bdf8"],
+    colors = ["var(--color-primary)", "rgba(255,255,255,0.9)", "var(--color-primary)", "rgba(255,255,255,0.9)"],
     speed = 1,
   }: AuroraTextProps) => {
     const gradientStyle = {
