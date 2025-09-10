@@ -117,9 +117,9 @@ const HeroSection: React.FC<{ className?: string }> = ({ className = "" }) => {
           </h1>
 
           <p className="mt-5 text-base md:text-lg text-slate-300">
-            <TextAnimate animation="fadeInUp" by="line" as={'p'}>
+            
               Welcome to Paydios, your all-in-one payment gateway solution designed to help your business accept payments securely, track earnings, and grow with confidence.
-            </TextAnimate>
+        
 
 
           </p>
