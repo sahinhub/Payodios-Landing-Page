@@ -1,5 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import "../ExtraStyles/hero.css";
+import { ArrowRightIcon } from "lucide-react";
+import { AnimatedShinyText } from "@/components/magicui/animated-shiny-text";
+import { AuroraText } from "./magicui/aurora-text";
 
 const HeroSection: React.FC<{ className?: string }> = ({ className = "" }) => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -78,12 +81,14 @@ const HeroSection: React.FC<{ className?: string }> = ({ className = "" }) => {
       {/* Content overlay */}
       <div className="relative z-10 mx-auto max-w-7xl px-4 pt-10 pb-8 md:px-6 md:pt-16">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-slate-300">
-            New: Instant publish with atomic deploys
-          </p>
+          <AnimatedShinyText className="inline-flex items-center justify-center px-4 py-1 transition ease-out hover:duration-300 hover:text-white/20">
+            <span>💳 All-in-one payment for everyone</span>
+            <ArrowRightIcon className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
+          </AnimatedShinyText>
 
           <h1 className="sm:text-5xl md:text-7xl text-4xl font-semibold tracking-tight">
-            Ship websites at lightspeed
+            Paydios Merchant Portal – <AuroraText>Simplified</AuroraText> Your
+            Payments.
           </h1>
 
           <p className="mt-5 text-base md:text-lg text-slate-300">

@@ -4,6 +4,8 @@
 @plugin "tailwindcss-animate";
 @import "tw-animate-css";
 
+@custom-variant dark (&:is(.dark *));
+
 :root {
   --radius: 0.625rem;
   --background: oklch(100% 0.00011 271.152);
@@ -37,7 +39,7 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-  
+
   /* custom */
   --custom-primary: #D9FF43;       /* payodios */
   --custom-surface: rgba(255,255,255,0.03);
@@ -86,14 +88,43 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-
   /* custom style */
   --custom-surface: var(--custom-surface);
   --custom-text: var(--custom-text);
   --custom-muted: var(--custom-muted);
-}
-
-
+  --animate-shiny-text: shiny-text 8s infinite;
+  @keyframes shiny-text {
+  0%, 90%, 100% {
+    background-position: calc(-100% - var(--shiny-width)) 0;
+    }
+  30%, 60% {
+    background-position: calc(100% + var(--shiny-width)) 0;
+    }
+  }
+  --animate-aurora: aurora 8s ease-in-out infinite alternate
+;
+  @keyframes aurora {
+  0% {
+    background-position: 0% 50%;
+    transform: rotate(-5deg) scale(0.9);
+    }
+  25% {
+    background-position: 50% 100%;
+    transform: rotate(5deg) scale(1.1);
+    }
+  50% {
+    background-position: 100% 50%;
+    transform: rotate(-3deg) scale(0.95);
+    }
+  75% {
+    background-position: 50% 0%;
+    transform: rotate(3deg) scale(1.05);
+    }
+  100% {
+    background-position: 0% 50%;
+    transform: rotate(-5deg) scale(0.9);
+    }
+  }}
 
 /* .dark {
   --background: oklch(0.145 0 0);
@@ -142,4 +173,3 @@
     animation: none;
     mix-blend-mode: normal;
 }
-
