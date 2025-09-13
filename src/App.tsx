@@ -9,7 +9,7 @@ import Footer from "./components/Footer";
 function App() {
   
   return (
-    <div className="bg-neutral-950 text-black text-white min-h-screen relative">
+    <div className="bg-neutral-950 text-white min-h-screen relative">
      <NavigationMenuDemo></NavigationMenuDemo>
      
      <Outlet></Outlet>

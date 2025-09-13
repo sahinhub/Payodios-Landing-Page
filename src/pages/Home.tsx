@@ -1,10 +1,12 @@
 import HeroSection from '@/components/Hero';
+import Stack from '@/components/Stack';
 import * as React from 'react';
 
 const Home = () => {
     return (
-        <div className='min-h-screen text-center'>
+        <div className=' text-center'>
             <HeroSection></HeroSection>
+            <Stack></Stack>
         </div>
     );
 };

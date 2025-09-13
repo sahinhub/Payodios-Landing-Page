@@ -6,8 +6,8 @@
   justify-content: center;
   overflow: hidden;
   transition: all 0.25s ease;
-  background: radial-gradient(65.28% 65.28% at 50% 100%, rgba(34, 211, 238, 0.8) 0%, rgba(34, 211, 238, 0) 100%), linear-gradient(0deg, #2563eb, #2563eb);
-  border-radius: 0.75rem;
+  background: radial-gradient(65.28% 65.28% at 50% 100%, var(--color-primary) 0%, rgba(34, 211, 238, 0) 100%), linear-gradient(0deg, var(--color-primary), var(--color-primary));
+  border-radius: 8.5rem;
   border: none;
   outline: none;
   padding: 12px 18px;
@@ -25,13 +25,13 @@
 
 .animatedButton::before {
   inset: 1px;
-  background: linear-gradient(177.95deg, rgba(255, 255, 255, 0.19) 0%, rgba(255, 255, 255, 0) 100%);
-  border-radius: calc(0.75rem - 1px);
+  background: linear-gradient(177.95deg, rgba(255, 255, 255, 0.19) 0%, rgba(0, 0, 0, .1) 100%);
+  border-radius: calc(0.5rem - 1px);
 }
 
 .animatedButton::after {
   inset: 2px;
-  background: radial-gradient(65.28% 65.28% at 50% 100%, rgba(34, 211, 238, 0.8) 0%, rgba(34, 211, 238, 0) 100%), linear-gradient(0deg, #2563eb, #2563eb);
+  background: radial-gradient(65.28% 65.28% at 50% 100%, var(--color-primary) 0%, rgba(34, 211, 238, 0) 100%), linear-gradient(0deg, var(--color-primary), var(--color-primary));
   border-radius: calc(0.75rem - 2px);
 }
 
@@ -55,7 +55,7 @@
   pointer-events: none;
   width: 2px;
   height: 2px;
-  background-color: #fff;
+  background-color: rgba(0, 0, 0, 0.4);
   border-radius: 9999px;
 }
 
@@ -145,7 +145,7 @@
   gap: 6px;
   position: relative;
   width: 100%;
-  color: white;
+  color: black;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -159,7 +159,7 @@
   width: 18px;
   height: 18px;
   transition: transform 0.3s ease;
-  stroke: white;
+  stroke: black;
   fill: none;
 }
 

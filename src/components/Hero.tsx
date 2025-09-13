@@ -1,12 +1,17 @@
-import React, { useEffect, useRef } from "react";
-import "../ExtraStyles/hero.css";
-import { ArrowRightIcon, ChevronRight } from "lucide-react";
-import { AnimatedShinyText } from "@/components/magicui/animated-shiny-text";
-import { AuroraText } from "./magicui/aurora-text";
+import React , { useEffect, useRef } from "react";
+import "./ScrollStack";
+import { ChevronRight } from "lucide-react";
 import { AnimatedGradientText } from "./magicui/animated-gradient-text";
-import { cn } from "../lib/utils";
+import { AuroraText } from "./magicui/aurora-text";
 import { TextAnimate } from "./magicui/text-animate";
-
+import { cn } from "../lib/utils";
+import ScrollStack, { ScrollStackItem } from './ScrollStack'
+export interface AuroraTextProps {
+  children?: React.ReactNode; // optional now
+  className?: string;
+  colors?: string[];
+  speed?: number;
+}
 
 const HeroSection: React.FC<{ className?: string }> = ({ className = "" }) => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -35,7 +40,7 @@ const HeroSection: React.FC<{ className?: string }> = ({ className = "" }) => {
 
   const AnimatedButton: React.FC = () => {
     return (
-      <button type="button" className="animatedButton">
+      <div role="button" className="animatedButton">
         <div className="pointsWrapper">
           {Array.from({ length: 10 }, (_, i) => (
             <i key={i} className="point" />
@@ -43,7 +48,7 @@ const HeroSection: React.FC<{ className?: string }> = ({ className = "" }) => {
         </div>
 
         <span className="inner">
-          Try for free
+          Get Started
           <svg
             className="icon"
             fill="none"
@@ -58,16 +63,7 @@ const HeroSection: React.FC<{ className?: string }> = ({ className = "" }) => {
             <path d="m12 5 7 7-7 7"></path>
           </svg>
         </span>
-      </button>
-    );
-  };
-
-  const WatchDemoButton: React.FC = () => {
-    return (
-      <button className="watchDemoButton">
-        <span className="watchDemoButtonText">Watch demo</span>
-        <span aria-hidden="true" className="watchDemoButtonUnderline" />
-      </button>
+      </div>
     );
   };
 
@@ -76,11 +72,11 @@ const HeroSection: React.FC<{ className?: string }> = ({ className = "" }) => {
       className={`hero-section relative z-10 overflow-hidden h-screen pt-50 ${className}`}
     >
       {/* ✅ Unicorn Studio animation */}
-      <div
+      {/* <div
         ref={containerRef}
         data-us-project="krvLrHX3sj3cg8BHywDj"
         className="absolute inset-0 z-0 w-full min-h-screen"
-      ></div>
+      ></div> */}
 
       {/* Content overlay */}
       <div className="relative z-10 mx-auto max-w-7xl px-4 pt-10 pb-8 md:px-6 md:pt-16">
@@ -108,25 +104,26 @@ const HeroSection: React.FC<{ className?: string }> = ({ className = "" }) => {
             />
           </div>
 
-
-          <h1 className="sm:text-5xl md:text-7xl text-4xl font-semibold tracking-tight ">
-            <TextAnimate animation="blurInUp" by="word" delay={2}>
-              Paydios Merchant Portal – Simplified Your Payments.
-            </TextAnimate>
-           
-          </h1>
+          <div>
+            <h1 className="sm:text-5xl md:text-7xl text-4xl font-semibold tracking-tight">
+              <TextAnimate animation="blurInUp" by="word" delay={2}>
+                {"Paydios Merchant Portal –"}
+              </TextAnimate>{" "}
+              <AuroraText>Simplified</AuroraText>{" "}
+              <TextAnimate animation="blurInUp" by="word" delay={2}>
+                {"Your Payments."}
+              </TextAnimate>
+            </h1>
+          </div>
 
           <p className="mt-5 text-base md:text-lg text-slate-300">
-            
-              Welcome to Paydios, your all-in-one payment gateway solution designed to help your business accept payments securely, track earnings, and grow with confidence.
-        
-
-
+            Welcome to Paydios, your all-in-one payment gateway solution designed
+            to help your business accept payments securely, track earnings, and
+            grow with confidence.
           </p>
 
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <AnimatedButton />
-            <WatchDemoButton />
           </div>
 
           <div className="mt-6 flex items-center justify-center gap-3 text-sm text-slate-400">
@@ -151,6 +148,11 @@ const HeroSection: React.FC<{ className?: string }> = ({ className = "" }) => {
           </div>
         </div>
       </div>
+
+
+
+
+      
     </section>
   );
 };
